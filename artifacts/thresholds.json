@@ -1,0 +1,5 @@
+{
+  "recommended_threshold_f1": 0.4,
+  "balanced_threshold": 0.6278882173885058,
+  "default_threshold": 0.5
+}

@@ -1,0 +1,604 @@
+{
+  "n_rows": 10000,
+  "n_cols": 19,
+  "class_counts": {
+    "0": 3520,
+    "1": 6480
+  },
+  "purchase_rate": 0.648,
+  "missing": {
+    "Customer_Rating": 325,
+    "Cart_Value_INR": 325,
+    "Traffic_Source": 240,
+    "Age": 238,
+    "Session_Duration_Min": 224,
+    "Payment_Method": 213,
+    "Discount_Percent": 211,
+    "Membership_Type": 209,
+    "Gender": 204,
+    "Days_Since_Last_Visit": 180,
+    "Device_Type": 145
+  },
+  "total_missing_cells": 2514,
+  "rows_with_any_missing": 2222,
+  "quality_checks": {
+    "duplicate rows": 0,
+    "duplicate Customer_ID": 0,
+    "Age < 18 or > 100": 0,
+    "Email_Open_Rate outside [0,1]": 0,
+    "Customer_Rating outside [1,5]": 0,
+    "Discount_Percent outside [0,100]": 0,
+    "negative values in any numeric column": 0,
+    "Pages_Viewed not a whole number": 30,
+    "Age not a whole number": 0,
+    "Cart_Items = 0 but Cart_Value > 0": 2105
+  },
+  "outliers_raw": [
+    {
+      "feature": "Age",
+      "Q1": 27.0,
+      "Q3": 40.0,
+      "lower_fence": 7.5,
+      "upper_fence": 59.5,
+      "n_below": 0,
+      "n_above": 58,
+      "pct_outliers": 0.59,
+      "min": 18.0,
+      "max": 74.0
+    },
+    {
+      "feature": "Session_Duration_Min",
+      "Q1": 6.78,
+      "Q3": 16.64,
+      "lower_fence": -8.01,
+      "upper_fence": 31.44,
+      "n_below": 0,
+      "n_above": 325,
+      "pct_outliers": 3.32,
+      "min": 1.0,
+      "max": 227.76
+    },
+    {
+      "feature": "Pages_Viewed",
+      "Q1": 5.0,
+      "Q3": 9.0,
+      "lower_fence": -1.0,
+      "upper_fence": 15.0,
+      "n_below": 0,
+      "n_above": 45,
+      "pct_outliers": 0.45,
+      "min": 1.0,
+      "max": 148.08
+    },
+    {
+      "feature": "Cart_Value_INR",
+      "Q1": 819.93,
+      "Q3": 2279.96,
+      "lower_fence": -1370.12,
+      "upper_fence": 4470.02,
+      "n_below": 0,
+      "n_above": 346,
+      "pct_outliers": 3.58,
+      "min": 14.93,
+      "max": 88342.76
+    },
+    {
+      "feature": "Discount_Percent",
+      "Q1": 6.45,
+      "Q3": 16.22,
+      "lower_fence": -8.2,
+      "upper_fence": 30.88,
+      "n_below": 0,
+      "n_above": 176,
+      "pct_outliers": 1.8,
+      "min": 0.14,
+      "max": 99.15
+    },
+    {
+      "feature": "Days_Since_Last_Visit",
+      "Q1": 3.46,
+      "Q3": 16.74,
+      "lower_fence": -16.47,
+      "upper_fence": 36.67,
+      "n_below": 0,
+      "n_above": 508,
+      "pct_outliers": 5.17,
+      "min": 0.0,
+      "max": 671.77
+    }
+  ],
+  "purchase_rate_by_category": {
+    "Gender": {
+      "Female": 0.6484,
+      "Male": 0.6489,
+      "Missing": 0.6422,
+      "Other": 0.6316
+    },
+    "Device_Type": {
+      "Desktop": 0.6666,
+      "Missing": 0.6552,
+      "Mobile": 0.6356,
+      "Tablet": 0.6714
+    },
+    "Traffic_Source": {
+      "Email": 0.7006,
+      "Missing": 0.6417,
+      "Organic": 0.6348,
+      "Paid Ads": 0.6512,
+      "Referral": 0.6299,
+      "Social Media": 0.6351
+    },
+    "Membership_Type": {
+      "Missing": 0.6364,
+      "New": 0.6099,
+      "Premium": 0.7213,
+      "Regular": 0.6607
+    },
+    "Payment_Method": {
+      "Cash on Delivery": 0.6434,
+      "Credit Card": 0.6498,
+      "Debit Card": 0.6414,
+      "Missing": 0.6291,
+      "UPI": 0.6566,
+      "Wallet": 0.643
+    }
+  },
+  "corr_with_target": {
+    "Returns_Last_Year": -0.0468,
+    "Days_Since_Last_Visit": -0.0433,
+    "Age": -0.0011,
+    "Email_Open_Rate": 0.0317,
+    "Customer_Rating": 0.0366,
+    "Pages_Viewed": 0.0417,
+    "Discount_Percent": 0.0495,
+    "Cart_Value_INR": 0.0542,
+    "Session_Duration_Min": 0.0793,
+    "Previous_Orders": 0.0816,
+    "Products_Viewed": 0.109,
+    "Cart_Items": 0.2316
+  },
+  "n_train": 8000,
+  "n_test": 2000,
+  "capping": [
+    {
+      "feature": "Age",
+      "lower_fence": 7.5,
+      "upper_fence": 59.5,
+      "n_values_capped": 40
+    },
+    {
+      "feature": "Session_Duration_Min",
+      "lower_fence": -7.66,
+      "upper_fence": 30.98,
+      "n_values_capped": 290
+    },
+    {
+      "feature": "Pages_Viewed",
+      "lower_fence": -1.0,
+      "upper_fence": 15.0,
+      "n_values_capped": 38
+    },
+    {
+      "feature": "Cart_Value_INR",
+      "lower_fence": -1290.39,
+      "upper_fence": 4382.14,
+      "n_values_capped": 285
+    },
+    {
+      "feature": "Discount_Percent",
+      "lower_fence": -7.72,
+      "upper_fence": 30.53,
+      "n_values_capped": 145
+    },
+    {
+      "feature": "Days_Since_Last_Visit",
+      "lower_fence": -15.97,
+      "upper_fence": 35.92,
+      "n_values_capped": 421
+    }
+  ],
+  "best_params": {
+    "C": 1.0,
+    "class_weight": null,
+    "penalty": "l1"
+  },
+  "best_cv_auc": 0.7281544489981234,
+  "cv_auc_std": 0.007164414035554896,
+  "vif_max": 2.943,
+  "vif_top": [
+    {
+      "feature": "Payment_Method_UPI",
+      "VIF": 2.943
+    },
+    {
+      "feature": "Payment_Method_Credit Card",
+      "VIF": 2.697
+    },
+    {
+      "feature": "Payment_Method_Debit Card",
+      "VIF": 2.48
+    },
+    {
+      "feature": "Traffic_Source_Organic",
+      "VIF": 2.234
+    },
+    {
+      "feature": "Payment_Method_Wallet",
+      "VIF": 2.179
+    }
+  ],
+  "metrics": {
+    "Baseline (train)": {
+      "accuracy": 0.70075,
+      "precision": 0.7265345891523222,
+      "recall": 0.8630401234567902,
+      "f1": 0.788926115323576,
+      "roc_auc": 0.7320279208096592,
+      "pr_auc": 0.8264309713423108
+    },
+    "Baseline (test)": {
+      "accuracy": 0.7045,
+      "precision": 0.7278603749191984,
+      "recall": 0.8688271604938271,
+      "f1": 0.7921209989447766,
+      "roc_auc": 0.7410629734848486,
+      "pr_auc": 0.8388202469433184
+    },
+    "Tuned (train)": {
+      "accuracy": 0.70025,
+      "precision": 0.7259896171317326,
+      "recall": 0.863233024691358,
+      "f1": 0.7886852308776877,
+      "roc_auc": 0.7319679131812921,
+      "pr_auc": 0.8264051943447478
+    },
+    "Tuned (test)": {
+      "accuracy": 0.7035,
+      "precision": 0.7263361236316807,
+      "recall": 0.8703703703703703,
+      "f1": 0.7918567918567918,
+      "roc_auc": 0.740962138748597,
+      "pr_auc": 0.8386500858588559
+    }
+  },
+  "majority_baseline_accuracy": 0.648,
+  "confusion_matrix_0.5": [
+    [
+      279,
+      425
+    ],
+    [
+      168,
+      1128
+    ]
+  ],
+  "threshold_table": [
+    {
+      "strategy": "Default 0.5",
+      "threshold": 0.5,
+      "accuracy": 0.704,
+      "precision": 0.726,
+      "recall": 0.87,
+      "f1": 0.792,
+      "flagged_pct": 0.776
+    },
+    {
+      "strategy": "F1-optimal (CV)",
+      "threshold": 0.4,
+      "accuracy": 0.696,
+      "precision": 0.693,
+      "recall": 0.954,
+      "f1": 0.803,
+      "flagged_pct": 0.892
+    },
+    {
+      "strategy": "Balanced / Youden (CV)",
+      "threshold": 0.628,
+      "accuracy": 0.682,
+      "precision": 0.79,
+      "recall": 0.694,
+      "f1": 0.739,
+      "flagged_pct": 0.569
+    }
+  ],
+  "t_f1": 0.4,
+  "t_youden": 0.6278882173885058,
+  "threshold_sweep": [
+    {
+      "threshold": 0.2,
+      "accuracy": 0.656,
+      "precision": 0.653,
+      "recall": 0.999,
+      "f1": 0.79,
+      "flagged_pct": 0.991
+    },
+    {
+      "threshold": 0.25,
+      "accuracy": 0.662,
+      "precision": 0.658,
+      "recall": 0.994,
+      "f1": 0.792,
+      "flagged_pct": 0.978
+    },
+    {
+      "threshold": 0.3,
+      "accuracy": 0.674,
+      "precision": 0.668,
+      "recall": 0.989,
+      "f1": 0.797,
+      "flagged_pct": 0.96
+    },
+    {
+      "threshold": 0.35,
+      "accuracy": 0.686,
+      "precision": 0.68,
+      "recall": 0.975,
+      "f1": 0.801,
+      "flagged_pct": 0.93
+    },
+    {
+      "threshold": 0.4,
+      "accuracy": 0.696,
+      "precision": 0.693,
+      "recall": 0.954,
+      "f1": 0.803,
+      "flagged_pct": 0.892
+    },
+    {
+      "threshold": 0.45,
+      "accuracy": 0.703,
+      "precision": 0.71,
+      "recall": 0.916,
+      "f1": 0.8,
+      "flagged_pct": 0.836
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.704,
+      "precision": 0.726,
+      "recall": 0.87,
+      "f1": 0.792,
+      "flagged_pct": 0.776
+    },
+    {
+      "threshold": 0.55,
+      "accuracy": 0.699,
+      "precision": 0.745,
+      "recall": 0.813,
+      "f1": 0.778,
+      "flagged_pct": 0.707
+    },
+    {
+      "threshold": 0.6,
+      "accuracy": 0.693,
+      "precision": 0.778,
+      "recall": 0.737,
+      "f1": 0.757,
+      "flagged_pct": 0.614
+    },
+    {
+      "threshold": 0.65,
+      "accuracy": 0.672,
+      "precision": 0.8,
+      "recall": 0.658,
+      "f1": 0.722,
+      "flagged_pct": 0.533
+    },
+    {
+      "threshold": 0.7,
+      "accuracy": 0.626,
+      "precision": 0.812,
+      "recall": 0.55,
+      "f1": 0.656,
+      "flagged_pct": 0.439
+    },
+    {
+      "threshold": 0.75,
+      "accuracy": 0.593,
+      "precision": 0.851,
+      "recall": 0.451,
+      "f1": 0.589,
+      "flagged_pct": 0.343
+    },
+    {
+      "threshold": 0.8,
+      "accuracy": 0.538,
+      "precision": 0.886,
+      "recall": 0.329,
+      "f1": 0.479,
+      "flagged_pct": 0.24
+    },
+    {
+      "threshold": 0.85,
+      "accuracy": 0.471,
+      "precision": 0.913,
+      "recall": 0.203,
+      "f1": 0.332,
+      "flagged_pct": 0.144
+    }
+  ],
+  "coefficients": [
+    {
+      "feature": "Cart_Items",
+      "coefficient": 0.6064,
+      "odds_ratio": 1.8338
+    },
+    {
+      "feature": "Membership_Type_Premium",
+      "coefficient": 0.534,
+      "odds_ratio": 1.7057
+    },
+    {
+      "feature": "Cart_Value_INR",
+      "coefficient": 0.4071,
+      "odds_ratio": 1.5025
+    },
+    {
+      "feature": "Session_Duration_Min",
+      "coefficient": 0.2723,
+      "odds_ratio": 1.313
+    },
+    {
+      "feature": "Pages_Viewed",
+      "coefficient": 0.2614,
+      "odds_ratio": 1.2988
+    },
+    {
+      "feature": "Products_Viewed",
+      "coefficient": 0.2579,
+      "odds_ratio": 1.2942
+    },
+    {
+      "feature": "Membership_Type_Regular",
+      "coefficient": 0.238,
+      "odds_ratio": 1.2687
+    },
+    {
+      "feature": "Previous_Orders",
+      "coefficient": 0.2186,
+      "odds_ratio": 1.2443
+    },
+    {
+      "feature": "Discount_Percent",
+      "coefficient": 0.1475,
+      "odds_ratio": 1.159
+    },
+    {
+      "feature": "Customer_Rating",
+      "coefficient": 0.0872,
+      "odds_ratio": 1.0911
+    },
+    {
+      "feature": "Email_Open_Rate",
+      "coefficient": 0.083,
+      "odds_ratio": 1.0865
+    },
+    {
+      "feature": "Payment_Method_UPI",
+      "coefficient": 0.0475,
+      "odds_ratio": 1.0487
+    },
+    {
+      "feature": "Payment_Method_Debit Card",
+      "coefficient": 0.0096,
+      "odds_ratio": 1.0097
+    },
+    {
+      "feature": "Payment_Method_Credit Card",
+      "coefficient": 0.0,
+      "odds_ratio": 1.0
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.0036,
+      "odds_ratio": 0.9964
+    },
+    {
+      "feature": "Payment_Method_Wallet",
+      "coefficient": -0.027,
+      "odds_ratio": 0.9734
+    },
+    {
+      "feature": "Gender_Male",
+      "coefficient": -0.0314,
+      "odds_ratio": 0.9691
+    },
+    {
+      "feature": "Device_Type_Tablet",
+      "coefficient": -0.0639,
+      "odds_ratio": 0.9381
+    },
+    {
+      "feature": "Returns_Last_Year",
+      "coefficient": -0.1151,
+      "odds_ratio": 0.8912
+    },
+    {
+      "feature": "Gender_Other",
+      "coefficient": -0.1399,
+      "odds_ratio": 0.8695
+    },
+    {
+      "feature": "Days_Since_Last_Visit",
+      "coefficient": -0.2135,
+      "odds_ratio": 0.8078
+    },
+    {
+      "feature": "Device_Type_Mobile",
+      "coefficient": -0.2163,
+      "odds_ratio": 0.8055
+    },
+    {
+      "feature": "Traffic_Source_Paid Ads",
+      "coefficient": -0.2337,
+      "odds_ratio": 0.7916
+    },
+    {
+      "feature": "Traffic_Source_Referral",
+      "coefficient": -0.2961,
+      "odds_ratio": 0.7437
+    },
+    {
+      "feature": "Traffic_Source_Organic",
+      "coefficient": -0.3048,
+      "odds_ratio": 0.7373
+    },
+    {
+      "feature": "Traffic_Source_Social Media",
+      "coefficient": -0.3277,
+      "odds_ratio": 0.7206
+    }
+  ],
+  "new_customers": [
+    {
+      "Profile": "Engaged premium",
+      "Membership_Type": "Premium",
+      "Cart_Items": 4,
+      "Products_Viewed": 7,
+      "Previous_Orders": 6,
+      "P(purchase)": 0.996,
+      "Pred @0.5": "Purchase",
+      "Pred @0.40 (F1-opt)": "Purchase"
+    },
+    {
+      "Profile": "Window shopper",
+      "Membership_Type": "New",
+      "Cart_Items": 0,
+      "Products_Viewed": 1,
+      "Previous_Orders": 0,
+      "P(purchase)": 0.048,
+      "Pred @0.5": "No Purchase",
+      "Pred @0.40 (F1-opt)": "No Purchase"
+    },
+    {
+      "Profile": "Average customer",
+      "Membership_Type": "Regular",
+      "Cart_Items": 1,
+      "Products_Viewed": 4,
+      "Previous_Orders": 3,
+      "P(purchase)": 0.597,
+      "Pred @0.5": "Purchase",
+      "Pred @0.40 (F1-opt)": "Purchase"
+    },
+    {
+      "Profile": "Lapsed / high returns",
+      "Membership_Type": "New",
+      "Cart_Items": 0,
+      "Products_Viewed": 2,
+      "Previous_Orders": 1,
+      "P(purchase)": 0.064,
+      "Pred @0.5": "No Purchase",
+      "Pred @0.40 (F1-opt)": "No Purchase"
+    },
+    {
+      "Profile": "Messy record (NaNs, outliers)",
+      "Membership_Type": "Premium",
+      "Cart_Items": 2,
+      "Products_Viewed": 5,
+      "Previous_Orders": 4,
+      "P(purchase)": 0.908,
+      "Pred @0.5": "Purchase",
+      "Pred @0.40 (F1-opt)": "Purchase"
+    }
+  ]
+}
